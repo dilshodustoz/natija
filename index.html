@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>IELTS Full Mock natijalari | Dilshod ustoz</title>
+<style>
+:root { --ink: #18181B; --muted: #52525B; --subtle: #71717A; --line: #E4E4E7; --bg: #FAFAF9; --card: #fff; --soft: #F4F4F5;
+  --brand: #EA580C; --brand-d: #C2410C; --brand-soft: #FFF7ED; --bad: #B91C1C; }
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #FAFAFA; --muted: #D4D4D8; --subtle: #A1A1AA; --line: #3F3F46; --bg: #18181B; --card: #27272A; --soft: #3F3F46;
+    --brand-soft: #431407; --bad: #FCA5A5; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 28px 16px 40px; }
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; }
+.brand .mk { width: 38px; height: 38px; border-radius: 10px; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+.brand b { display: block; } .brand small { color: var(--subtle); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px 20px; margin-bottom: 14px; }
+h1 { font-size: 24px; margin: 0 0 6px; }
+p { color: var(--muted); line-height: 1.55; margin: 0 0 10px; }
+form { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+input { flex: 1; min-width: 180px; font: 800 26px/1 ui-monospace, Menlo, monospace; letter-spacing: 5px; text-transform: uppercase; text-align: center;
+  padding: 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+input:focus { outline: none; border-color: var(--brand); }
+button { font: 700 16px/1 inherit; font-family: inherit; padding: 0 22px; min-height: 52px; border-radius: 12px; border: 0; background: var(--brand); color: #fff; cursor: pointer; }
+button:disabled { opacity: .6; }
+.err { color: var(--bad); min-height: 20px; margin-top: 10px; font-size: 14px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+.tile { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.tile small { color: var(--subtle); font-weight: 600; font-size: 13px; }
+.tile b { display: block; font-size: 30px; margin: 2px 0; font-variant-numeric: tabular-nums; }
+.tile span { color: var(--subtle); font-size: 13px; }
+.tile.all { grid-column: 1 / -1; background: var(--brand); border-color: var(--brand); color: #fff; text-align: center; }
+.tile.all small, .tile.all span { color: #fff; }
+.note { background: var(--soft); border-radius: 12px; padding: 12px 14px; line-height: 1.55; margin-top: 10px; font-size: 15px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; color: var(--subtle); font-size: 12px; text-transform: uppercase; padding: 6px 6px; border-bottom: 1px solid var(--line); }
+td { padding: 9px 6px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.link { background: none; color: var(--subtle); text-decoration: underline; min-height: 0; padding: 0; font-weight: 500; font-size: 14px; }
+.foot { text-align: center; color: var(--subtle); font-size: 13px; margin-top: 22px; }
+.foot a { color: var(--brand); font-weight: 700; text-decoration: none; }
+.h2 { font-size: 16px; font-weight: 800; margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="mk">DU</div><div><b>IELTS Full Mock</b><small>Dilshod ustoz · natijalar</small></div></div>
+  <div id="app"></div>
+  <div class="foot">Dilshod ustoz · <a href="https://t.me/dilshod_english">t.me/dilshod_english</a> · <a href="https://instagram.com/dilshod.ustoz">@dilshod.ustoz</a></div>
+</div>
+<script>
+// Natija fayli o'quvchi kodi bilan shifrlangan: kodsiz hech kim o'qiy olmaydi, fayl nomi ham koddan hosil qilinadi.
+const enc = new TextEncoder();
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const b1 = v => v == null ? '—' : Number(v).toFixed(1);
+function normCode(c) { c = String(c || '').toUpperCase().replace(/[^A-Z0-9]/g, ''); return c.slice(0, 2) + c.slice(2).replace(/O/g, '0').replace(/[IL]/g, '1'); }
+const hex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+const unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function derive(code) {
+  const base = await crypto.subtle.importKey('raw', enc.encode(code), 'PBKDF2', false, ['deriveBits']);
+  const bits = (salt, n) => crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: enc.encode(salt), iterations: 150000 }, base, n);
+  const id = hex(await bits('dilshod-fm-id-v1', 128));
+  const key = await crypto.subtle.importKey('raw', await bits('dilshod-fm-key-v1', 256), 'AES-GCM', false, ['decrypt']);
+  return { id, key };
+}
+
+function loginView(err) {
+  document.getElementById('app').innerHTML = `<div class="card"><h1>Natijangizni ko'ring</h1>
+    <p>Ustoz bergan shaxsiy kodingizni kiriting (2 ta harf va 4 ta raqam).</p>
+    <form onsubmit="look(event)"><input id="code" maxlength="8" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="AB1234"><button id="btn">Ko'rish</button></form>
+    <div class="err" id="err">${esc(err || '')}</div></div>`;
+  let saved = ''; try { saved = localStorage.getItem('fm_code') || ''; } catch (e) {}
+  const i = document.getElementById('code'); i.value = saved; i.focus();
+}
+
+async function look(e) {
+  e.preventDefault();
+  const code = normCode(document.getElementById('code').value), btn = document.getElementById('btn'), err = document.getElementById('err');
+  if (code.length !== 6) { err.textContent = 'Kod 6 belgidan iborat bo\'lishi kerak.'; return; }
+  btn.disabled = true; err.textContent = 'Tekshirilmoqda...';
+  try {
+    const { id, key } = await derive(code);
+    const r = await fetch(`r/${id}.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (!r.ok) throw new Error('nf');
+    const f = await r.json();
+    const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(f.iv) }, key, unb64(f.ct));
+    try { localStorage.setItem('fm_code', code); } catch (e2) {}
+    show(JSON.parse(new TextDecoder().decode(plain)));
+  } catch (x) {
+    btn.disabled = false;
+    err.textContent = x.message === 'nf' ? 'Bu kod uchun natija topilmadi. Kodni tekshiring yoki natija hali e\'lon qilinmagan bo\'lishi mumkin.' : 'Natijani ochib bo\'lmadi. Kodni tekshiring.';
+  }
+}
+
+function show(d) {
+  const rs = d.results.slice().sort((a, b) => (b.date || 0) - (a.date || 0)), r = rs[0];
+  const date = t => t ? new Date(t * 1000).toLocaleDateString('uz-UZ', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '';
+  let h = `<div class="card"><h1>${esc(d.name)}</h1><p>${esc(r.mock)} · ${date(r.date)}</p><div class="grid">
+    ${r.listening ? `<div class="tile"><small>🎧 Listening</small><b>${b1(r.listening.band)}</b><span>${r.listening.raw}/${r.listening.total} to'g'ri</span></div>` : ''}
+    ${r.reading ? `<div class="tile"><small>📖 Reading</small><b>${b1(r.reading.band)}</b><span>${r.reading.raw}/${r.reading.total} to'g'ri</span></div>` : ''}
+    ${r.writing ? `<div class="tile"><small>✍️ Writing</small><b>${b1(r.writing.band)}</b><span>Task 1: ${b1(r.writing.t1)} · Task 2: ${b1(r.writing.t2)}</span></div>` : ''}
+    <div class="tile"><small>🗣 Speaking</small><b>—</b><span>bu mockda yo'q</span></div>
+    ${r.overall != null ? `<div class="tile all"><small>O'rtacha (L+R+W)</small><b>${b1(r.overall)}</b></div>` : ''}</div>
+    ${r.comment ? `<div class="note"><b>💬 Ustoz izohi:</b><br>${esc(r.comment)}</div>` : ''}${r.advice ? `<div class="note">💡 ${esc(r.advice)}</div>` : ''}</div>`;
+  if (rs.length > 1) h += `<div class="card"><div class="h2">Oldingi mocklar</div><table><tr><th>Sana</th><th>Mock</th><th>L</th><th>R</th><th>W</th><th>O'rtacha</th></tr>
+    ${rs.map(x => `<tr><td>${date(x.date)}</td><td>${esc(x.mock)}</td><td>${b1(x.listening && x.listening.band)}</td><td>${b1(x.reading && x.reading.band)}</td><td>${b1(x.writing && x.writing.band)}</td><td><b>${b1(x.overall)}</b></td></tr>`).join('')}</table></div>`;
+  h += `<div style="text-align:center"><button class="link" onclick="loginView()">Boshqa kod bilan kirish</button></div>`;
+  document.getElementById('app').innerHTML = h;
+}
+
+if (!window.crypto || !crypto.subtle) document.getElementById('app').innerHTML = '<div class="card"><p>Brauzeringiz eskirgan. Chrome yoki Safari\'ning yangi versiyasida oching.</p></div>';
+else loginView();
+</script>
+</body>
+</html>
